@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{03D2C814-D3A4-4412-AC82-5B03BD551CBA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Aitoe.Vigilant.Controller.BL</RootNamespace>
+    <AssemblyName>Aitoe.Vigilant.Controller.BL</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Dropbox.Api, Version=0.1.6058.19706, Culture=neutral, PublicKeyToken=310f0e82fbb45d01, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dropbox.Api.3.5.0\lib\net45\Dropbox.Api.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Ccc\ExceptionAuthenticationService.cs" />
+    <Compile Include="Ccc\ExceptionHandlerAitoeRedCell.cs" />
+    <Compile Include="Ccc\ExceptionHandlerCamProcRepository.cs" />
+    <Compile Include="Ccc\ExceptionHandlerDropboxService.cs" />
+    <Compile Include="Ccc\ExceptionHandlerEmailService.cs" />
+    <Compile Include="Ccc\ExceptionHandlerPushbulletService.cs" />
+    <Compile Include="Ccc\LoggerAuthenticationService.cs" />
+    <Compile Include="Ccc\LoggerDropboxService.cs" />
+    <Compile Include="Ccc\LoggerEmailService.cs" />
+    <Compile Include="Ccc\LoggerAitoeRedCell.cs" />
+    <Compile Include="Ccc\LoggerCamProcRepository.cs" />
+    <Compile Include="Ccc\LoggerPushbulletService.cs" />
+    <Compile Include="Entites\CameraProc.cs" />
+    <Compile Include="Entites\IAitoeRedCell.cs" />
+    <Compile Include="Entites\IAuthDetails.cs" />
+    <Compile Include="Entites\ICellDescBase.cs" />
+    <Compile Include="Entites\IEmail.cs" />
+    <Compile Include="Entites\ISMTPHost.cs" />
+    <Compile Include="ExceptionDefs\AitoeBaseException.cs" />
+    <Compile Include="ExceptionDefs\AitoeDeserializationException.cs" />
+    <Compile Include="ExceptionDefs\AitoeEmailServiceException.cs" />
+    <Compile Include="ExceptionDefs\AitoeErrorCodes.cs" />
+    <Compile Include="ExceptionDefs\AitoePushbulletServiceException.cs" />
+    <Compile Include="ExceptionDefs\AitoeWebRequestException.cs" />
+    <Compile Include="Infra\ConfigSettings\PortableSettingsProvider.cs" />
+    <Compile Include="Infra\Events\EventArgs.cs" />
+    <Compile Include="Infra\Events\EventHandlerExtensions.cs" />
+    <Compile Include="Infra\Events\ReadOnlyEventArgs.cs" />
+    <Compile Include="Infra\ExceptionExtensions.cs" />
+    <Compile Include="Infra\Extensions\StringConvertExtensions.cs" />
+    <Compile Include="Infra\ProcessExtensions.cs" />
+    <Compile Include="Infra\AitoeRedProcessStatus.cs" />
+    <Compile Include="Infra\StringPathExtensions.cs" />
+    <Compile Include="Infra\AitoeWebResponse.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RepositoryInterfaces\ICamProcRepository.cs" />
+    <Compile Include="ServiceInterfaces\IAuthenticationService.cs" />
+    <Compile Include="ServiceInterfaces\IAuthorizationService.cs" />
+    <Compile Include="ServiceInterfaces\IDropboxService.cs" />
+    <Compile Include="ServiceInterfaces\IEmailService.cs" />
+    <Compile Include="ServiceInterfaces\IPushBulletService.cs" />
+    <Compile Include="Services\EncryptionService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

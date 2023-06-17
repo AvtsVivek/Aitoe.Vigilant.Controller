@@ -1,0 +1,17 @@
+﻿//http://www.camera-sdk.com/p_16-contact-onvif.html
+//http://stackoverflow.com/questions/19393774/how-to-make-all-controls-resize-accordingly-proportionally-when-window-is-maximi
+//http://stackoverflow.com/a/11095460/1977871
+//http://stackoverflow.com/questions/30218560/how-to-add-custom-controls-in-wpf-using-mvvm-and-datatemplate
+//http://stackoverflow.com/a/11095460/1977871
+//http://www.codeproject.com/Articles/165368/WPF-MVVM-Quick-Start-Tutorial?fid=1613530&df=90&mpp=50&prof=True&sort=Position&view=Normal&spc=Relaxed&fr=101
+// Search on google for wpf ListView dynamically add columns.
+//http://stackoverflow.com/questions/13344788/how-to-create-listview-to-a-grid-programmatically/
+//http://stackoverflow.com/questions/1525333/wpf-binding-dictionarystring-liststring-to-listview-listbox-how
+
+Things to be done.
+1. Scrol bar
+2. Have more control over the processes, like stopping a pirticular process given a cell, stoping a process given a cell etc.
+
+Questions:
+1. Vigilant is one exe or red, monitor is differnet?
+

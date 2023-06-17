@@ -1,0 +1,26 @@
+﻿<UserControl x:Class="Aitoe.Vigilant.Controller.WpfController.VigilantCamStream"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Aitoe.Vigilant.Controller.WpfController"
+             xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
+             mc:Ignorable="d"
+             >
+    <DockPanel Name="MyDocPanel" >
+        <!--<local:CustomeWindowsFormsHost  x:Name="VigilantHost">
+            <wf:Panel BorderStyle="Fixed3D" Paint="FormsPanel_Paint" x:Name="FormsPanel" />
+        </local:CustomeWindowsFormsHost>-->
+        <!--<WindowsFormsHost x:Name="VigilantHost">
+            <wf:Panel BorderStyle="Fixed3D" Paint="FormsPanel_Paint" x:Name="FormsPanel" />
+        </WindowsFormsHost>-->
+
+        <local:ScrollViewerWindowsFormsHost x:Name="VigilantHost" >
+            <wf:Panel BorderStyle="Fixed3D" Paint="FormsPanel_Paint" x:Name="FormsPanel"/>
+        </local:ScrollViewerWindowsFormsHost>
+        <!--<WindowsFormsHost x:Name="VigilantHost">
+            --><!--<wf:Panel BorderStyle="FixedSingle" Paint="FormsPanel_Paint" x:Name="FormsPanel" BackColor="Yellow" Dock="Fill"/>--><!--
+            <wf:Panel Paint="FormsPanel_Paint" x:Name="FormsPanel"/>
+        </WindowsFormsHost>-->
+    </DockPanel>
+</UserControl>

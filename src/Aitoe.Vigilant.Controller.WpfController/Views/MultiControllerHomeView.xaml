@@ -1,0 +1,111 @@
+﻿<Window x:Class="Aitoe.Vigilant.Controller.WpfController.Views.MultiControllerHomeView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Aitoe.Vigilant.Controller.WpfController.Views"
+        xmlns:localVM="clr-namespace:Aitoe.Vigilant.Controller.WpfController.ViewModel"
+        DataContext="{Binding MultiControllerHomeVM, Source={StaticResource Locator}}"
+        xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Platform"
+        mc:Ignorable="d"        
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+        Title="aiSentinel"   
+        WindowStyle="{Binding MainWindowStyle}"
+        WindowState="{Binding MainWindowState}"
+        >
+    <Window.InputBindings>
+        <KeyBinding Key="F11" Command="{Binding ToggleFullScreen}">
+        </KeyBinding>
+    </Window.InputBindings>
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type localVM:VigilantProcessListViewModel}">
+            <local:VigilantProcessListView />
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type localVM:MultiControllerViewModel}">
+            <local:MultiControllerView />
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type localVM:LoginViewModel}">
+            <local:LoginView />
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type localVM:MailSettingsViewModel}">
+            <local:MailSettingsView />
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type localVM:PushbulletSettingsViewModel}">
+            <local:PushbulletSettingsView />
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type localVM:DropboxSettingsViewModel}">
+            <local:DropboxSettingsView />
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type localVM:GeneralHelpViewModel}">
+            <local:GeneralHelpView />
+        </DataTemplate>
+        
+    </Window.Resources>
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Closing" >
+            <cmd:EventToCommand Command="{Binding MainWindowClosing}" PassEventArgsToCommand="True" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Menu Name="MainMenu" Visibility="{Binding MainMenuVisibility}" >
+            <MenuItem Header="_View" IsEnabled="{Binding LoginSuccessfull}">
+                <ItemsControl ItemsSource="{Binding ViewMenuViewModels}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <MenuItem HorizontalContentAlignment="Right" Header="{Binding Name}" Command="{Binding DataContext.ChangeViewMenu, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" 
+                                            CommandParameter="{Binding }"
+                                            />
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                    <ItemsControl.InputBindings>
+                        <KeyBinding Modifiers="Alt" Key="{Binding BindingKey}" Command="{Binding DataContext.ChangeViewMenu, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" 
+                                            CommandParameter="{Binding }"
+                                            />
+                    </ItemsControl.InputBindings>
+                </ItemsControl>
+            </MenuItem>
+            <MenuItem Header="_Options" IsEnabled="{Binding LoginSuccessfull}">
+                <ItemsControl ItemsSource="{Binding OptionsMenuViewModels}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <MenuItem Header="{Binding Name}" Command="{Binding DataContext.ChangeOptionsMenu, 
+                                RelativeSource={RelativeSource AncestorType={x:Type Window}}}" CommandParameter="{Binding }" />
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </MenuItem>
+            <MenuItem Header="_Help" IsEnabled="True">
+                <ItemsControl ItemsSource="{Binding HelpMenuViewModels}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <MenuItem Header="{Binding Name}" Command="{Binding DataContext.ChangeHelpMenu, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" 
+                                        CommandParameter="{Binding }"
+                                        />
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+
+            </MenuItem>
+        </Menu>
+        <StackPanel Grid.Row="1" >
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="MouseEnter">
+                    <cmd:EventToCommand Command="{Binding StackPanelMouseEnter}" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+            <Border BorderBrush="White" BorderThickness="1"></Border>
+        </StackPanel>
+        <ContentControl Grid.Row="2" Content="{Binding CurrentPageViewModel}" />
+    </Grid>
+</Window>

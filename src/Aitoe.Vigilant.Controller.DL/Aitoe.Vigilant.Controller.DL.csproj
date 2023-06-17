@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{59995A4C-1135-46C2-A427-69F9A2CAFB6B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Aitoe.Vigilant.Controller.DL</RootNamespace>
+    <AssemblyName>Aitoe.Vigilant.Controller.DL</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Dropbox.Api, Version=0.1.6058.19706, Culture=neutral, PublicKeyToken=310f0e82fbb45d01, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dropbox.Api.3.5.0\lib\net45\Dropbox.Api.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Nemiro.OAuth, Version=1.11.461.2477, Culture=neutral, PublicKeyToken=cb06320e362d440b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nemiro.OAuth.1.11.2477\lib\net461\Nemiro.OAuth.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Nemiro.OAuth.LoginForms, Version=1.4.461.2483, Culture=neutral, PublicKeyToken=2656cfe28099e3f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nemiro.OAuth.LoginForms.1.4.2483\lib\net461\Nemiro.OAuth.LoginForms.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PresentationFramework" />
+    <Reference Include="Pushbullet.Cli">
+      <HintPath>..\..\..\..\aitoe_notification\pushbullet\src\Pushbullet.Wpf\bin\Debug\Pushbullet.Cli.exe</HintPath>
+    </Reference>
+    <Reference Include="Pushbullet.WPF">
+      <HintPath>..\..\..\..\aitoe_notification\pushbullet\src\Pushbullet.Wpf\bin\Debug\Pushbullet.WPF.exe</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=105.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.105.2.3\lib\net46\RestSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Entities\AitoeRedCell.cs" />
+    <Compile Include="Entities\AuthDetails.cs" />
+    <Compile Include="Entities\EmailMessage.cs" />
+    <Compile Include="Entities\SMTPHost.cs" />
+    <Compile Include="Infra\DlRepresentative.cs" />
+    <Compile Include="Infra\LicenseData.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\CamProcRepository.cs" />
+    <Compile Include="Services\AuthenticationService.cs" />
+    <Compile Include="Services\DropboxService.cs" />
+    <Compile Include="Services\EmailService.cs" />
+    <Compile Include="Services\PushbulletService.cs" />
+    <Compile Include="Settings.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Aitoe.Vigilant.Controller.BL\Aitoe.Vigilant.Controller.BL.csproj">
+      <Project>{03d2c814-d3a4-4412-ac82-5b03bd551cba}</Project>
+      <Name>Aitoe.Vigilant.Controller.BL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

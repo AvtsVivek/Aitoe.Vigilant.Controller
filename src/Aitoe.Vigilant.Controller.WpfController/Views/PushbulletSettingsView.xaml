@@ -1,0 +1,166 @@
+﻿<UserControl x:Class="Aitoe.Vigilant.Controller.WpfController.Views.PushbulletSettingsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Aitoe.Vigilant.Controller.WpfController.Views"
+             xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+             xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Platform"
+             xmlns:localInfraVC="clr-namespace:Aitoe.Vigilant.Controller.WpfController.Infra.ValueConverters"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <localInfraVC:NonEmptyStringConverter x:Key="NonEmptyStringConverter" />
+        <localInfraVC:PbVisibilityConverter x:Key="PbVisibilityConverter" />
+    </UserControl.Resources>
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="MouseLeftButtonDown">
+            <cmd:EventToCommand Command="{Binding ViewClicked}" CommandParameter="GoToMultiCamera" PassEventArgsToCommand="True" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="{Binding HomeBackground}"/>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Image Grid.Row="0" Grid.RowSpan="3" Grid.Column="0" Grid.ColumnSpan="4"  Margin="0, 0, 0, 0" Stretch="Uniform" Source="{Binding AitoeLogoSource}"></Image>
+        <Border Grid.Row="1" Grid.Column="7" Grid.RowSpan="5" Grid.ColumnSpan="9" BorderBrush="LightGray" Padding="10,10,10,10" BorderThickness="2">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="6" BorderBrush="LightGray" BorderThickness="2,2,1,2"></Border>
+                <Label Name="lbl" Grid.Row="1" Grid.Column="0" Grid.RowSpan="4" Grid.ColumnSpan="3" >
+                    <Label.Background>
+                        <ImageBrush Opacity="0.9" ImageSource="{Binding PushbulletImageSource}" >
+                        </ImageBrush>
+                    </Label.Background>
+                </Label>
+                <Border Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="9" Grid.RowSpan="6" BorderBrush="LightGray" BorderThickness="1,2,2,2"></Border>
+                <TextBlock Grid.Row="1" Grid.RowSpan="2" TextWrapping="Wrap" HorizontalAlignment="Center" Grid.Column="3" Grid.ColumnSpan="8" FontWeight="Bold" FontSize="18"  >
+                    <TextBlock.Style>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="Text" Value="Configure pushbullet to receive pushbullet alerts" />
+                            <Setter Property="Foreground" Value="Red" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding PushbulletConfigurationMessageVisibility}" Value="Collapsed">
+                                    <Setter Property="Text" Value="Pushbullet is Configured" />
+                                    <Setter Property="Foreground" Value="White" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+                <Button Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="9" Command="{Binding ConfigurePushBullet}" >
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Content" Value="Configure Pushbullet" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding PushbulletConfigurationMessageVisibility}" Value="Collapsed">
+                                    <Setter Property="Content" Value="Re-Configure Pushbullet" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <TextBox Margin="1,1,1,1" Visibility="{Binding PushbulletConfigurationMessageVisibility, Converter={StaticResource PbVisibilityConverter}}" Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="9" HorizontalContentAlignment="Left" Style="{StaticResource WaterMarkedToMessageAddressTextBox}" ToolTip="To Address" x:Name="txtToAddress" Text="{Binding ToAddress, UpdateSourceTrigger=PropertyChanged}" />
+                <TextBox Margin="1,1,1,1" Visibility="{Binding PushbulletConfigurationMessageVisibility, Converter={StaticResource PbVisibilityConverter}}" Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="9" HorizontalContentAlignment="Left" Style="{StaticResource WaterMarkedToMessageTitleTextBox}" ToolTip="Title of the message" x:Name="txtToTitle" Text="{Binding ToTitle, UpdateSourceTrigger=PropertyChanged}" />
+                <TextBox Margin="1,1,1,1" Visibility="{Binding PushbulletConfigurationMessageVisibility, Converter={StaticResource PbVisibilityConverter}}" Grid.Row="4" TextWrapping="Wrap" Grid.Column="3" Grid.ColumnSpan="9" HorizontalContentAlignment="Left" Style="{StaticResource WaterMarkedToMessageBodyTextBox}" ToolTip="Body of the message " x:Name="txtToBody" Text="{Binding ToBody, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBox Margin="1,1,1,1" Visibility="{Binding PushbulletConfigurationMessageVisibility, Converter={StaticResource PbVisibilityConverter}}" Grid.Row="5" Grid.Column="3" Grid.ColumnSpan="5" HorizontalContentAlignment="Left" Style="{StaticResource WaterMarkedMessageAttachmentTextBox}" Text="{Binding MessageAttachmentFilePath}" ToolTip="Path for an attachment file"/>
+                <Button Margin="1,1,1,1" Visibility="{Binding PushbulletConfigurationMessageVisibility, Converter={StaticResource PbVisibilityConverter}}" Grid.Row="5" Grid.Column="8" Grid.ColumnSpan="2" Content="Browse" Command="{Binding MessageAttachmentFileBrowse}" ></Button>
+                <Button Margin="1,1,1,1" Visibility="{Binding PushbulletConfigurationMessageVisibility, Converter={StaticResource PbVisibilityConverter}}" Grid.Row="5" Grid.Column="10" Grid.ColumnSpan="2" Content="Send" Command="{Binding SendMessage}" />
+                <TextBlock Margin="1,1,1,1" Visibility="{Binding PushbulletConfigurationMessageVisibility, Converter={StaticResource PbVisibilityConverter}}" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="13" Text="Send a test message" Foreground="White" FontWeight="Bold" HorizontalAlignment="Center" FontFamily="Garamond" FontSize="16" VerticalAlignment="Center" />
+            </Grid>
+        </Border>
+        <Grid Grid.Row="10" Margin="-15,80,0,0" Grid.Column="18" Grid.ColumnSpan="7" Grid.RowSpan="3" >
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Margin="0, 10, 0, 0" Grid.Column="0" Grid.RowSpan="15" Foreground="White" FontFamily="Garamond" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="16" Content="                     AITOE VIDEO ANALYTICS" />
+            <Label Grid.Row="1" Margin="-55, 10, 0, 0" Grid.Column="0" Grid.RowSpan="15" Foreground="White" FontFamily="Garamond" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="16" Content="A Quality Product of " />
+            <Label Grid.Row="5" Margin="0, 15, 0, 0" Grid.Column="0" Grid.RowSpan="15" Foreground="Red" FontFamily="Garamond" HorizontalContentAlignment="Left" VerticalContentAlignment="Top" FontSize="21.8" FontWeight="Bold"     Content="               Securing intelligently" />
+        </Grid>
+        <Image Stretch="Uniform" Grid.Row="7" Grid.Column="7" Grid.ColumnSpan="9" Grid.RowSpan="3" Source="{Binding AisentinelLogoSource}"></Image>
+        <Label Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="23" Foreground="White" HorizontalContentAlignment="Center" FontSize="30" Content="Making every camera smarter" />
+        <Label Grid.Row="11" Grid.Column="0" Grid.ColumnSpan="23" Foreground="White" HorizontalContentAlignment="Center" FontSize="30" Content="State of the Art Video Analytics for Surveillance" />
+    </Grid>
+</UserControl>

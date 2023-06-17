@@ -1,0 +1,462 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{63A11D83-104A-4056-90D9-E2228E37B1B5}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Aitoe.Vigilant.Controller.WpfController</RootNamespace>
+    <AssemblyName>aiSentinel</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Icons\vigilant.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=5.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.5.1.1\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CalcBinding, Version=2.2.5.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CalcBinding.2.2.5.1\lib\net45\CalcBinding.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Dropbox.Api, Version=0.1.6058.19706, Culture=neutral, PublicKeyToken=310f0e82fbb45d01, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dropbox.Api.3.5.0\lib\net45\Dropbox.Api.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DynamicExpresso.Core, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DynamicExpresso.Core.1.3.0.0\lib\net40\DynamicExpresso.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight, Version=5.3.0.19026, Culture=neutral, PublicKeyToken=e7570ab207bcb616, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.3.0.0\lib\net45\GalaSoft.MvvmLight.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Extras, Version=5.3.0.19032, Culture=neutral, PublicKeyToken=669f0b5e8f868abf, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.3.0.0\lib\net45\GalaSoft.MvvmLight.Extras.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Platform, Version=5.3.0.19032, Culture=neutral, PublicKeyToken=5f873c45e98af8a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.3.0.0\lib\net45\GalaSoft.MvvmLight.Platform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Nemiro.OAuth, Version=1.11.461.2477, Culture=neutral, PublicKeyToken=cb06320e362d440b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nemiro.OAuth.1.11.2477\lib\net461\Nemiro.OAuth.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Nemiro.OAuth.LoginForms, Version=1.4.461.2483, Culture=neutral, PublicKeyToken=2656cfe28099e3f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nemiro.OAuth.LoginForms.1.4.2483\lib\net461\Nemiro.OAuth.LoginForms.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ReachFramework">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="RunProcessAsTask, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RunProcessAsTask.1.1.2\lib\RunProcessAsTask.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Expression.Blend.Sdk.1.0.2\lib\net45\System.Windows.Interactivity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="AppWpfController.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="BasicMvvmLightT2.xaml.cs">
+      <DependentUpon>BasicMvvmLightT2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\GridControl.cs" />
+    <Compile Include="Infra\CellDesc.cs" />
+    <Compile Include="Infra\CellDescriptor.cs" />
+    <Compile Include="Infra\CustomRelayCommand.cs" />
+    <Compile Include="Infra\Enums\VigilantProcessStatus.cs" />
+    <Compile Include="Infra\Extensions\AitoeRedCellListExtensions.cs" />
+    <Compile Include="Infra\Extensions\SenderMailStateContextExtensions.cs" />
+    <Compile Include="Infra\Extensions\ObservableCollectionExtensions.cs" />
+    <Compile Include="Infra\IMessageDialogService.cs" />
+    <Compile Include="Infra\MessageBoxService.cs" />
+    <Compile Include="Infra\Messages\FromLoginVMToMultiControllerHomeVM.cs" />
+    <Compile Include="Infra\Messages\FromMailSettingsVMToMultiControllerHomeVM.cs" />
+    <Compile Include="Infra\Messages\FromMultiControllerVMToMultiControllerHomeVM.cs" />
+    <Compile Include="Infra\Messages\FromMultiControllerVMToVigilantGridVM.cs" />
+    <Compile Include="Infra\Messages\FromVigilantGridVMToVigilantSingleProcessVM.cs" />
+    <Compile Include="Infra\Messages\FromVigilantSingleProcessVMToVigilantGridVM.cs" />
+    <Compile Include="Infra\MessageType.cs" />
+    <Compile Include="Infra\PasswordBoxAssistant.cs" />
+    <Compile Include="Infra\PInvokeDefs.cs" />
+    <Compile Include="Infra\ProcInfo.cs" />
+    <Compile Include="Infra\SetterAction.cs" />
+    <Compile Include="Infra\SingleInstanceApp\SingleInstanceApplicationWrapper.cs" />
+    <Compile Include="Infra\States\ISenderMailState.cs" />
+    <Compile Include="Infra\States\SenderMailStateContext.cs" />
+    <Compile Include="Infra\ValueConverters\DropboxSettingsEnumConverter.cs" />
+    <Compile Include="Infra\ValueConverters\LoginStateEnumConverter.cs" />
+    <Compile Include="Infra\ValueConverters\MailSettingsEnumConverter.cs" />
+    <Compile Include="Infra\ValueConverters\MultiplyConverter.cs" />
+    <Compile Include="Infra\ValueConverters\NonEmptyStringConverter.cs" />
+    <Compile Include="Infra\ValueConverters\PbVisibilityConverter.cs" />
+    <Compile Include="Infra\ViewModelStateEnums\DropboxSettingsState.cs" />
+    <Compile Include="Infra\ViewModelStateEnums\LoginState.cs" />
+    <Compile Include="Infra\ViewModelStateEnums\MailSettingsStateEnum.cs" />
+    <Compile Include="Infra\VigilantProcessStatus.cs" />
+    <Compile Include="Model\CellAitoeCamera.cs" />
+    <Compile Include="Model\CellBase.cs" />
+    <Compile Include="Model\CellColumnHeader.cs" />
+    <Compile Include="Model\CellRowHeader.cs" />
+    <Compile Include="Model\SMTPHost.cs" />
+    <Compile Include="PasswordProtection.xaml.cs">
+      <DependentUpon>PasswordProtection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ScrollViewerWindowsFormsHost.cs" />
+    <Compile Include="Design\DesignDataService.cs" />
+    <Compile Include="DynamicGridT2.xaml.cs">
+      <DependentUpon>DynamicGridT2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Infra\2DProcessMatrix.cs" />
+    <Compile Include="Infra\ColumnDescriptor.cs" />
+    <Compile Include="Infra\DataMatrix.cs" />
+    <Compile Include="Infra\ExtendedListView.cs" />
+    <Compile Include="Infra\GridControlHelpers.cs" />
+    <Compile Include="Infra\GridHelpers.cs" />
+    <Compile Include="Infra\GridViewColumns.cs" />
+    <Compile Include="Infra\OddEvenTemplateSelector.cs" />
+    <Compile Include="Infra\ProcessExtensions.cs" />
+    <Compile Include="Infra\RowDescriptor.cs" />
+    <Compile Include="Infra\WpfControllerNInjectModule.cs" />
+    <Compile Include="Infra\Utils.cs" />
+    <Compile Include="MainWindow2.xaml.cs">
+      <DependentUpon>MainWindow2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BasicMvvmLightT1.xaml.cs">
+      <DependentUpon>BasicMvvmLightT1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DataItem.cs" />
+    <Compile Include="Model\DataService.cs" />
+    <Compile Include="Model\Employee.cs" />
+    <Compile Include="Model\IDataService.cs" />
+    <Compile Include="Model\IpCamera.cs" />
+    <Compile Include="ScrollViewWindowProblemTrial.xaml.cs">
+      <DependentUpon>ScrollViewWindowProblemTrial.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SimpleUserControl.xaml.cs">
+      <DependentUpon>SimpleUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\AitoeVigilantViewModelBase.cs" />
+    <Compile Include="ViewModel\DropboxSettingsViewModel.cs" />
+    <Compile Include="ViewModel\GeneralHelpViewModel.cs" />
+    <Compile Include="ViewModel\LoginViewModel.cs" />
+    <Compile Include="ViewModel\MailSettingsViewModel.cs" />
+    <Compile Include="ViewModel\MessageSettingsViewModel2.cs" />
+    <Compile Include="ViewModel\MessageSettingsViewModel.cs" />
+    <Compile Include="ViewModel\MultiControllerViewModel.cs" />
+    <Compile Include="ViewModel\MultiControllerViewModelFullScreen.cs" />
+    <Compile Include="ViewModel\PushbulletSettingsViewModel.cs" />
+    <Compile Include="ViewModel\VigilantGridViewModel.cs" />
+    <Compile Include="ViewModel\VigilantSingleProcessViewModel.cs" />
+    <Compile Include="ViewModel\VigilantProcessListViewModel.cs" />
+    <Compile Include="ViewModel\BasicMvvmLightT2ViewModel.cs" />
+    <Compile Include="ViewModel\IPageViewModel.cs" />
+    <Compile Include="ViewModel\CamerasViewModel1.cs" />
+    <Compile Include="ViewModel\MultiControllerHomeViewModel.cs" />
+    <Compile Include="ViewModel\ViewModelLocator.cs" />
+    <Compile Include="Views\DropboxSettingsView.xaml.cs">
+      <DependentUpon>DropboxSettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GeneralHelpView.xaml.cs">
+      <DependentUpon>GeneralHelpView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LoginView.xaml.cs">
+      <DependentUpon>LoginView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MailSettingsView.xaml.cs">
+      <DependentUpon>MailSettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MultiControllerHomeView.xaml.cs">
+      <DependentUpon>MultiControllerHomeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PushbulletSettingsView.xaml.cs">
+      <DependentUpon>PushbulletSettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SendMessageView.xaml.cs">
+      <DependentUpon>SendMessageView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VigilantGridView.xaml.cs">
+      <DependentUpon>VigilantGridView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MultiControllerView.xaml.cs">
+      <DependentUpon>MultiControllerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VigilantProcessListView.xaml.cs">
+      <DependentUpon>VigilantProcessListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VigilantSingleProcessView.xaml.cs">
+      <DependentUpon>VigilantSingleProcessView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WindowsFormsHostView.xaml.cs">
+      <DependentUpon>WindowsFormsHostView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VigilantCamStream.xaml.cs">
+      <DependentUpon>VigilantCamStream.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomeWindowsFormsHost.cs" />
+    <Compile Include="VigilantCamStream1.xaml.cs">
+      <DependentUpon>VigilantCamStream1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowMovedEventArgs.cs" />
+    <Page Include="BasicMvvmLightT2.xaml">
+      <SubType>Form</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DynamicGridT2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="AppWpfController.xaml.cs">
+      <DependentUpon>AppWpfController.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="BasicMvvmLightT1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PasswordProtection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Constants.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ScrollViewWindowProblemTrial.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SimpleUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\MainSkin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DropboxSettingsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\GeneralHelpView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LoginView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MailSettingsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MultiControllerHomeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PushbulletSettingsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SendMessageView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\VigilantGridView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MultiControllerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\VigilantProcessListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\VigilantSingleProcessView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\WindowsFormsHostView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VigilantCamStream.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VigilantCamStream1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfoWpfController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.Aitoe.Vigilant.Controller.WpfController.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+    <Resource Include="Resources\Docs\aiSentinelManual.xps" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="References.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\PinOn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\PinRemoved.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\vigilant.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Aitoe.Vigilant.Controller.BL\Aitoe.Vigilant.Controller.BL.csproj">
+      <Project>{03D2C814-D3A4-4412-AC82-5B03BD551CBA}</Project>
+      <Name>Aitoe.Vigilant.Controller.BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="Aitoe.Vigilant.Controller.WpfHo.csproj">
+      <Project>{d265608e-a8ec-4cfd-81ed-36ad0151b52c}</Project>
+      <Name>Aitoe.Vigilant.Controller.WpfHo</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\Key-PNG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\Email.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\PushBullet-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\Help-button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\DropBox.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\HomeBackgroundOpaque.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\HomeBackgroundTransparent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\aitoe_Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\HomeBackground.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\aisentinelLogo.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

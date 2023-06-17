@@ -1,0 +1,39 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Aitoe.Vigilant.Controller.DL.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="GridCellsData" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="PollingDuration" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">3000</Value>
+    </Setting>
+    <Setting Name="SendersEmailAddress" Provider="Aitoe.Vigilant.Controller.BL.Infra.ConfigSettings.PortableSettingsProvider" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="EmailSendersPassword" Provider="Aitoe.Vigilant.Controller.BL.Infra.ConfigSettings.PortableSettingsProvider" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="SMTPServer" Provider="Aitoe.Vigilant.Controller.BL.Infra.ConfigSettings.PortableSettingsProvider" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="SMTPPort" Provider="Aitoe.Vigilant.Controller.BL.Infra.ConfigSettings.PortableSettingsProvider" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="DropBoxAccessToken" Provider="Aitoe.Vigilant.Controller.BL.Infra.ConfigSettings.PortableSettingsProvider" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="DropBoxClientSecret" Provider="Aitoe.Vigilant.Controller.BL.Infra.ConfigSettings.PortableSettingsProvider" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="DropBoxClientId" Provider="Aitoe.Vigilant.Controller.BL.Infra.ConfigSettings.PortableSettingsProvider" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="DropboxSaveToFolder" Provider="Aitoe.Vigilant.Controller.BL.Infra.ConfigSettings.PortableSettingsProvider" Type="System.String" Scope="User">
+      <Value Profile="(Default)">AitoeData</Value>
+    </Setting>
+    <Setting Name="LD" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+  </Settings>
+</SettingsFile>

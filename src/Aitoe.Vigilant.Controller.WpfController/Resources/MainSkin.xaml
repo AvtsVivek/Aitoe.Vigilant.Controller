@@ -1,0 +1,357 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:localInfra="clr-namespace:Aitoe.Vigilant.Controller.WpfController.Infra"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+                    >
+
+
+    <Style x:Key="BaseButtonStyle" TargetType="Button">
+        <Setter Property="Background" Value="LightGray" />
+        <Setter Property="Margin" Value="1"/>
+    </Style>
+
+    <ItemsPanelTemplate x:Key="MenuItemPanelTemplate">
+        <StackPanel Margin="-35,0,0,0" Background="White"/>
+    </ItemsPanelTemplate>
+
+    <Style TargetType="{x:Type MenuItem}">
+        <Setter Property="ItemsPanel" Value="{StaticResource MenuItemPanelTemplate}"/>
+    </Style>
+
+    <Style x:Key="WaterMarkedCameraIpAddressTextBox" TargetType="TextBox">
+        <Style.Resources>
+            <VisualBrush x:Key="CueBannerBrush" AlignmentX="Center"  AlignmentY="Center" Stretch="None">
+                <VisualBrush.Visual>
+                    <Label Content="Camera Ip Address" Foreground="Black" Opacity="0.9" FontStyle="Italic" FontWeight="Bold" />
+                </VisualBrush.Visual>
+            </VisualBrush>
+        </Style.Resources>
+        <Style.Triggers>
+            <Trigger Property="Text" Value="{x:Static sys:String.Empty}">
+                <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+            </Trigger>
+            <Trigger Property="Text" Value="{x:Null}">
+                <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+            </Trigger>
+            <Trigger Property="IsKeyboardFocused" Value="True">
+                <Setter Property="Background" Value="White" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    
+    <Style x:Key="WaterMarkedCameraLogInTextBox" TargetType="TextBox">
+        <Style.Resources>
+            <VisualBrush x:Key="CueBannerBrush" AlignmentX="Center"  AlignmentY="Center" Stretch="None">
+                <VisualBrush.Visual>
+                    <Label Content="Camera Login Id" Foreground="Black" Opacity="0.9" FontStyle="Italic" FontWeight="Bold"  />
+                </VisualBrush.Visual>
+            </VisualBrush>
+        </Style.Resources>
+        <Style.Triggers>
+            <Trigger Property="Text" Value="{x:Static sys:String.Empty}">
+                <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+            </Trigger>
+            <Trigger Property="Text" Value="{x:Null}">
+                <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+            </Trigger>
+            <Trigger Property="IsKeyboardFocused" Value="True">
+                <Setter Property="Background" Value="White" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    
+    <Style x:Key="WaterMarkedCameraPasswordBox" TargetType="PasswordBox">
+        <Style.Resources>
+            <VisualBrush x:Key="CueBannerBrush" AlignmentX="Center"  AlignmentY="Center" Stretch="None">
+                <VisualBrush.Visual>
+                    <Label Content="Camera Password" Foreground="Black" Opacity="0.9" FontStyle="Italic" FontWeight="Bold" />
+                </VisualBrush.Visual>
+            </VisualBrush>
+        </Style.Resources>
+        <Style.Triggers>
+            <Trigger Property="localInfra:PasswordBoxAssistant.BoundPassword" Value="{x:Static sys:String.Empty}">
+                <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+            </Trigger>
+            <Trigger Property="localInfra:PasswordBoxAssistant.BoundPassword" Value="{x:Null}">
+                <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+            </Trigger>
+            <Trigger Property="IsKeyboardFocused" Value="True">
+                <Setter Property="Background" Value="White" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+   
+    <Style x:Key="WaterMarkedFromEmailAddressTextBox" TargetType="TextBox">
+        <Style.Resources>
+            <VisualBrush x:Key="CueBannerBrush" AlignmentX="Left" AlignmentY="Center" Stretch="None">
+                <VisualBrush.Visual>
+                    <Label Content="From Email Address e.g Your.Email@hotmail.com" Foreground="White" Opacity="0.9" FontStyle="Italic" />
+                </VisualBrush.Visual>
+            </VisualBrush>
+        </Style.Resources>
+        <Style.Triggers>
+            <Trigger Property="Text" Value="{x:Static sys:String.Empty}">
+                <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+            </Trigger>
+            <Trigger Property="Text" Value="{x:Null}">
+                <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+            </Trigger>
+            <Trigger Property="IsKeyboardFocused" Value="True">
+                <Setter Property="Background" Value="White" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="WaterMarkedFromPasswordPasswordBox" TargetType="PasswordBox">
+        <Style.Resources>
+            <VisualBrush x:Key="CueBannerBrush" AlignmentX="Left"  AlignmentY="Center" Stretch="None">
+                <VisualBrush.Visual>
+                    <Label Content="From address Password" Foreground="White" Opacity="0.9" FontStyle="Italic" />
+                </VisualBrush.Visual>
+            </VisualBrush>
+        </Style.Resources>
+        <Style.Triggers>
+            <Trigger Property="localInfra:PasswordBoxAssistant.BoundPassword" Value="{x:Static sys:String.Empty}">
+                <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+            </Trigger>
+            <Trigger Property="localInfra:PasswordBoxAssistant.BoundPassword" Value="{x:Null}">
+                <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+            </Trigger>
+            <Trigger Property="IsKeyboardFocused" Value="True">
+                <Setter Property="Background" Value="White" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="WaterMarkedConfirmFromPasswordPasswordBox" TargetType="PasswordBox">
+        <Style.Resources>
+            <VisualBrush x:Key="CueBannerBrush" AlignmentX="Left"  AlignmentY="Center" Stretch="None">
+                <VisualBrush.Visual>
+                    <Label Content="Confirm From address Password" Foreground="White" Opacity="0.9" FontStyle="Italic" />
+                </VisualBrush.Visual>
+            </VisualBrush>
+        </Style.Resources>
+        <Style.Triggers>
+            <Trigger Property="localInfra:PasswordBoxAssistant.BoundPassword" Value="{x:Static sys:String.Empty}">
+                <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+            </Trigger>
+            <Trigger Property="localInfra:PasswordBoxAssistant.BoundPassword" Value="{x:Null}">
+                <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+            </Trigger>
+            <Trigger Property="IsKeyboardFocused" Value="True">
+                <Setter Property="Background" Value="White" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="WaterMarkedSMTPServerTextBox" TargetType="TextBox">
+        <Style.Resources>
+            <VisualBrush x:Key="CueBannerBrush" AlignmentX="Left" AlignmentY="Center" Stretch="None">
+                <VisualBrush.Visual>
+                    <Label Content="SMTP Server e.g: smtp.live.com " Foreground="White" Opacity="0.9" FontStyle="Italic" />
+                </VisualBrush.Visual>
+            </VisualBrush>
+        </Style.Resources>
+        <Style.Triggers>
+            <Trigger Property="Text" Value="{x:Static sys:String.Empty}">
+                <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+            </Trigger>
+            <Trigger Property="Text" Value="{x:Null}">
+                <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+            </Trigger>
+            <Trigger Property="IsKeyboardFocused" Value="True">
+                <Setter Property="Background" Value="White" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="WaterMarkedSMTPPortTextBox" TargetType="TextBox">
+        <Style.Resources>
+            <VisualBrush x:Key="CueBannerBrush" AlignmentX="Left" AlignmentY="Center" Stretch="None">
+                <VisualBrush.Visual>
+                    <Label Content="SMTP Port e.g: 25 or 587 " Foreground="White" Opacity="0.9" FontStyle="Italic" />
+                </VisualBrush.Visual>
+            </VisualBrush>
+        </Style.Resources>
+        <Style.Triggers>
+            <Trigger Property="Text" Value="{x:Static sys:String.Empty}">
+                <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+            </Trigger>
+            <Trigger Property="Text" Value="{x:Null}">
+                <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+            </Trigger>
+            <Trigger Property="IsKeyboardFocused" Value="True">
+                <Setter Property="Background" Value="White" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="WaterMarkedToMessageAddressTextBox" TargetType="TextBox">
+        <Style.Resources>
+            <VisualBrush x:Key="CueBannerBrush" AlignmentX="Left" AlignmentY="Center" Stretch="None">
+                <VisualBrush.Visual>
+                    <Label Content="To Message Address" Foreground="White" Opacity="0.9" FontStyle="Italic" />
+                </VisualBrush.Visual>
+            </VisualBrush>
+        </Style.Resources>
+        <Style.Triggers>
+            <Trigger Property="Text" Value="{x:Static sys:String.Empty}">
+                <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+            </Trigger>
+            <Trigger Property="Text" Value="{x:Null}">
+                <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+            </Trigger>
+            <Trigger Property="IsKeyboardFocused" Value="True">
+                <Setter Property="Background" Value="White" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="WaterMarkedToMessageTitleTextBox" TargetType="TextBox">
+        <Style.Resources>
+            <VisualBrush x:Key="CueBannerBrush" AlignmentX="Left" AlignmentY="Center" Stretch="None">
+                <VisualBrush.Visual>
+                    <Label Content="To Message Title" Foreground="White" Opacity="0.9" FontStyle="Italic" />
+                </VisualBrush.Visual>
+            </VisualBrush>
+        </Style.Resources>
+        <Style.Triggers>
+            <Trigger Property="Text" Value="{x:Static sys:String.Empty}">
+                <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+            </Trigger>
+            <Trigger Property="Text" Value="{x:Null}">
+                <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+            </Trigger>
+            <Trigger Property="IsKeyboardFocused" Value="True">
+                <Setter Property="Background" Value="White" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="WaterMarkedToMessageBodyTextBox" TargetType="TextBox">
+        <Style.Resources>
+            <VisualBrush x:Key="CueBannerBrush" AlignmentX="Left" AlignmentY="Center" Stretch="None">
+                <VisualBrush.Visual>
+                    <Label Content="To Message Body" Foreground="White" Opacity="0.9" FontStyle="Italic" />
+                </VisualBrush.Visual>
+            </VisualBrush>
+        </Style.Resources>
+        <Style.Triggers>
+            <Trigger Property="Text" Value="{x:Static sys:String.Empty}">
+                <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+            </Trigger>
+            <Trigger Property="Text" Value="{x:Null}">
+                <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+            </Trigger>
+            <Trigger Property="IsKeyboardFocused" Value="True">
+                <Setter Property="Background" Value="White" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="WaterMarkedMessageAttachmentTextBox" TargetType="TextBox">
+        <Style.Resources>
+            <VisualBrush x:Key="CueBannerBrush" AlignmentX="Left" AlignmentY="Center" Stretch="None">
+                <VisualBrush.Visual>
+                    <Label Content="Browse for file" Foreground="White" Opacity="0.9" FontStyle="Italic" />
+                </VisualBrush.Visual>
+            </VisualBrush>
+        </Style.Resources>
+        <Style.Triggers>
+            <Trigger Property="Text" Value="{x:Static sys:String.Empty}">
+                <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+            </Trigger>
+            <Trigger Property="Text" Value="{x:Null}">
+                <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+            </Trigger>
+            <Trigger Property="IsKeyboardFocused" Value="True">
+                <Setter Property="Background" Value="White" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="WaterMarkedDropboxFolderPath" TargetType="TextBox">
+        <Style.Resources>
+            <VisualBrush x:Key="CueBannerBrush" AlignmentX="Left" AlignmentY="Center" Stretch="None">
+                <VisualBrush.Visual>
+                    <Label Content="Folder/InnerFolder/InnerInnerFolder (Dropbox path)" Foreground="White" Opacity="0.9" FontStyle="Italic" />
+                </VisualBrush.Visual>
+            </VisualBrush>
+        </Style.Resources>
+        <Style.Triggers>
+            <Trigger Property="Text" Value="{x:Static sys:String.Empty}">
+                <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+            </Trigger>
+            <Trigger Property="Text" Value="{x:Null}">
+                <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+            </Trigger>
+            <Trigger Property="IsKeyboardFocused" Value="True">
+                <Setter Property="Background" Value="White" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="WaterMarkedDropboxCreateFolderPath" TargetType="TextBox">
+        <Style.Resources>
+            <VisualBrush x:Key="CueBannerBrush" AlignmentX="Left" AlignmentY="Center" Stretch="None">
+                <VisualBrush.Visual>
+                    <Label Content="Folder/InnerFolder   (Dropbox folder to create)" Foreground="White" Opacity="0.9" FontStyle="Italic" />
+                </VisualBrush.Visual>
+            </VisualBrush>
+        </Style.Resources>
+        <Style.Triggers>
+            <Trigger Property="Text" Value="{x:Static sys:String.Empty}">
+                <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+            </Trigger>
+            <Trigger Property="Text" Value="{x:Null}">
+                <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+            </Trigger>
+            <Trigger Property="IsKeyboardFocused" Value="True">
+                <Setter Property="Background" Value="White" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="WaterMarkedDropboxDeleteFolderPath" TargetType="TextBox">
+        <Style.Resources>
+            <VisualBrush x:Key="CueBannerBrush" AlignmentX="Left" AlignmentY="Center" Stretch="None">
+                <VisualBrush.Visual>
+                    <Label Content="Folder/InnerFolder   (Dropbox folder to Delete)" Foreground="White" Opacity="0.9" FontStyle="Italic" />
+                </VisualBrush.Visual>
+            </VisualBrush>
+        </Style.Resources>
+        <Style.Triggers>
+            <Trigger Property="Text" Value="{x:Static sys:String.Empty}">
+                <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+            </Trigger>
+            <Trigger Property="Text" Value="{x:Null}">
+                <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+            </Trigger>
+            <Trigger Property="IsKeyboardFocused" Value="True">
+                <Setter Property="Background" Value="White" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="WaterMarkedDropboxDeleteFilePath" TargetType="TextBox">
+        <Style.Resources>
+            <VisualBrush x:Key="CueBannerBrush" AlignmentX="Left" AlignmentY="Center" Stretch="None">
+                <VisualBrush.Visual>
+                    <Label Content="Folder/InnerFolder/File.xyz   (File on Dropbox to delete)" Foreground="White" Opacity="0.9" FontStyle="Italic" />
+                </VisualBrush.Visual>
+            </VisualBrush>
+        </Style.Resources>
+        <Style.Triggers>
+            <Trigger Property="Text" Value="{x:Static sys:String.Empty}">
+                <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+            </Trigger>
+            <Trigger Property="Text" Value="{x:Null}">
+                <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+            </Trigger>
+            <Trigger Property="IsKeyboardFocused" Value="True">
+                <Setter Property="Background" Value="White" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+</ResourceDictionary>

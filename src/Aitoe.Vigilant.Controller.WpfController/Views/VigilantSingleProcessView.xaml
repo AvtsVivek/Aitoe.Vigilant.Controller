@@ -1,0 +1,81 @@
+﻿<UserControl x:Class="Aitoe.Vigilant.Controller.WpfController.Views.VigilantSingleProcessView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:c="clr-namespace:CalcBinding;assembly=CalcBinding"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:localInfra="clr-namespace:Aitoe.Vigilant.Controller.WpfController.Infra"
+             xmlns:localInfraVC="clr-namespace:Aitoe.Vigilant.Controller.WpfController.Infra.ValueConverters"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Aitoe.Vigilant.Controller.WpfController"
+             xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+             xmlns:localViews="clr-namespace:Aitoe.Vigilant.Controller.WpfController.Views"
+             xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Platform"
+             xmlns:diag="clr-namespace:System.Diagnostics;assembly=WindowsBase"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             mc:Ignorable="d" 
+             Background="Transparent"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <localInfraVC:MultiplyConverter x:Key="MultiplyConverter" />
+        <localInfraVC:NonEmptyStringConverter x:Key="NonEmptyStringConverter" />
+    </UserControl.Resources>
+    <Border BorderBrush="DarkRed" BorderThickness="2">
+        <StackPanel Orientation="Vertical" VerticalAlignment="Center" >
+            <ContentControl DockPanel.Dock="Bottom" Name="FormContentControl" Visibility="{Binding FormVisibility}" >
+                <StackPanel Width="150" Grid.Row="0" Orientation="Vertical">
+                    <CheckBox HorizontalAlignment="Center" IsChecked="{Binding IsWebCam}" Foreground="Black" Content="Web Cam" FontWeight="Bold" >
+                        <CheckBox.Style>
+                            <Style TargetType="CheckBox">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Path=IsWebCam}" Value="False">
+                                        <Setter Property="Foreground" Value="Gray"></Setter>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </CheckBox.Style>
+                    </CheckBox>
+                    <Button Visibility="{c:Binding IsWebCam}" Content="Start" Command="{Binding StartVigilantProcess}" CommandParameter="{Binding CellName}" />
+                    <StackPanel Orientation="Vertical" Visibility="{c:Binding !IsWebCam}">
+                        <TextBox        x:Name="txtIpAddress"   HorizontalContentAlignment="Center" Style="{StaticResource WaterMarkedCameraIpAddressTextBox}" ToolTip="Ip Address of Camera"  Text="{Binding IpAddress, Mode=TwoWay}" BorderBrush="LightGray" BorderThickness="1" />
+                        <TextBox        x:Name="txtLoginId"     HorizontalContentAlignment="Center" Style="{StaticResource WaterMarkedCameraLogInTextBox}"     ToolTip="Login Id of Camera"    Text="{Binding LoginId, Mode=TwoWay}"  BorderBrush="LightGray" BorderThickness="1" />
+                        <PasswordBox    x:Name="pswdCamPassword" HorizontalContentAlignment="Center" Style="{StaticResource WaterMarkedCameraPasswordBox}"      ToolTip="Password for camera"   localInfra:PasswordBoxAssistant.BoundPassword="{Binding Path=Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" localInfra:PasswordBoxAssistant.BindPassword="true" BorderBrush="LightGray" BorderThickness="1"/>
+                        <Button Command="{Binding StartVigilantProcess}" CommandParameter="{Binding CellName}" >
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <Setter Property="IsEnabled" Value="True" />
+                                    <Setter Property="Content" Value="Start" />
+                                    <Setter Property="Opacity" Value="0.9" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Text, ElementName=txtIpAddress, Converter={StaticResource NonEmptyStringConverter}}" Value="False">
+                                            <Setter Property="IsEnabled" Value="False" />
+                                            <Setter Property="Content" Value="" />
+                                            <Setter Property="Opacity" Value="0" />
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding Text, ElementName=txtLoginId, Converter={StaticResource NonEmptyStringConverter}}" Value="False">
+                                            <Setter Property="IsEnabled" Value="False" />
+                                            <Setter Property="Content" Value="" />
+                                            <Setter Property="Opacity" Value="0" />
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding Password, Converter={StaticResource NonEmptyStringConverter}}" Value="False">
+                                            <Setter Property="IsEnabled" Value="False" />
+                                            <Setter Property="Content" Value="" />
+                                            <Setter Property="Opacity" Value="0" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                        </Button>
+                    </StackPanel>
+                    <Label Content="{Binding CellName}" HorizontalContentAlignment="Center" Visibility="Collapsed" />
+                </StackPanel>
+            </ContentControl>
+            <ContentControl DockPanel.Dock="Bottom" Name="VigilantContentControl" Visibility="{Binding VigilantVisibility}" >
+                <StackPanel>
+                    <Border BorderBrush="Red" BorderThickness="0" >
+                        <localViews:WindowsFormsHostView x:Name="WFHV" Height="{c:Binding CellHeight - 4}"  VigilantProcInfo="{Binding VigilantProcInfo}" />
+                    </Border>
+                </StackPanel>
+            </ContentControl>
+        </StackPanel>
+    </Border>
+</UserControl>
